@@ -5,6 +5,7 @@ import Lenis from "lenis";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import Breadcrumbs from "@/components/site/Breadcrumbs";
 import { SAP_CONSULTING, ORACLE_CONSULTING, SALESFORCE_CONSULTING, BUILD_CLOUD } from "@/data/flagship";
 
 const Home = lazy(() => import("@/pages/Home"));
@@ -66,7 +67,8 @@ function App() {
       <BrowserRouter>
         <ScrollManager />
         <Header />
-        <main id="main-content">
+        <main id="main-content" className="relative">
+          <Breadcrumbs />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />

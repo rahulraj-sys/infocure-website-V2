@@ -64,3 +64,9 @@ Imported the real site from `infocure-Website-V2-main.zip` (previous boilerplate
 - Oracle & Salesforce heroes UNCHANGED (hero-oracle.jpg / hero-salesforce.jpg).
 - Homepage + Digital Transformation videos preserved. Verified by testing_agent iteration_6.json (100% pass, no issues).
 - Held (need explicit go-ahead; current spec was 'visual hero only'): visible breadcrumbs (item 19), About/Leadership/Careers spacing polish. Salesforce baked-in-text cleanup NOT done because the hero spec said keep Salesforce as-is.
+
+## 2026-06 — Breadcrumbs + QA
+- Added global Breadcrumbs (components/site/Breadcrumbs.jsx), rendered in App.js <main relative> outside Suspense. Visible dark pill under fixed header; hidden on '/' and '/adminia'. Home links; services/products/solutions are plain text (no index); insights/industries/case-studies link to index; last crumb = current. Emits BreadcrumbList JSON-LD (base https://infocure.in).
+- Verified by testing_agent: iteration_7 (all functional/responsive/schema/regression pass; 1 contrast issue) -> fixed (bg-black/75, white/85 links, white/70 plain) -> iteration_8 WCAG AA pass 100%.
+- About Polish: About (single /about page with Company/Leadership/Careers sections) already uses shared design-system primitives (Badge, Reveal, CTABand, SEO, MaskedLine). Verified consistent; no drift change made (avoided churn per no-redesign rule).
+- Salesforce hero: kept as-is (no user confirmation to strip baked-in labels).

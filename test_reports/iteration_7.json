@@ -1,0 +1,40 @@
+{
+  "summary": "Frontend-only breadcrumb and regression QA completed against the public URL. Breadcrumb trails, link/plain/current semantics, Home navigation, homepage/admin exclusions, BreadcrumbList JSON-LD, responsive geometry at all requested viewports, service hero media regressions, route rendering, and production build all passed. One accessibility/readability defect remains on light hero pages: the translucent pill and muted breadcrumb text do not meet WCAG AA contrast.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Breadcrumbs on light hero pages (verified on /industries; also applies to other white heroes such as /case-studies)",
+        "issues": [
+          "At 12px/500 weight, the current white crumb over bg-black/50 composited on white measures 3.95:1, below WCAG AA 4.5:1; the Home link at text-white/60 measures 2.46:1. Increase pill opacity and non-current text opacity/color."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/test_reports/iteration_7.json"
+  ],
+  "action_items": [
+    "Improve light-hero breadcrumb contrast, for example by using a substantially darker pill (such as bg-black/75) and brighter Home/intermediate text; recheck every 12px crumb at >=4.5:1."
+  ],
+  "critical_code_review_comments": [
+    "Breadcrumbs.jsx applies bg-black/50 globally, text-white/60 to links and text-white/45 to plain intermediate crumbs. Because the pill is translucent, its effective background on a white hero is #808080, causing both current and muted crumbs to fail normal-text contrast."
+  ],
+  "updated_files": [
+    "/app/test_reports/iteration_7.json"
+  ],
+  "success_rate": {
+    "backend": "Not tested (frontend-only request)",
+    "frontend": "97% of requested checks passed; all functional/integration/responsive/regression checks passed, with one light-hero contrast failure"
+  },
+  "seed_data_creation": "None",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Verified exact trails on SAP, Resources, Industries, About, HRMS and Case Studies. SAP schema names were Home/SAP Consulting because the visual plain-text Services segment has no real index URL; Resources schema included Home/Insights/Resources. Positions and https://infocure.in item URLs passed. Home crumb click and exclusions on / and /adminia passed. SAP and Resources passed 1920x800, 820x1180 and 390x844 with no breadcrumb/H1/CTA overlap or horizontal overflow. Four flagship services retained correct decoded static images and no hero video; Homepage and Digital Transformation retained videos. No console/page errors occurred across the requested route sweep. CI production build compiled successfully. Only unresolved defect is light-hero breadcrumb contrast.",
+  "rca_of_the_issue": "Breadcrumbs.jsx uses one translucent bg-black/50 pill for every backdrop. On a white hero, alpha compositing produces an effective #808080 background. Opaque white current text then reaches only 3.95:1, while text-white/60 Home links composite to about #CCCCCC and reach only 2.46:1. The same styling is acceptable over dark heroes but is not backdrop-independent as intended."
+}
