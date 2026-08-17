@@ -837,9 +837,8 @@ export const TEAM_AUGMENTATION = {
     primaryLabel: "Hire Consultants",
     secondaryLabel: "Talk to an Expert",
     trustLine: "Flexible technology talent. Faster deployment. Delivery models aligned to your business.",
-    image: "/img-freedom-of-devices.webp",
-    video: "/media/method-bg.mp4",
-    videoWebm: "/media/method-bg.webm",
+    image: "/media/ta-hero.jpg",
+    imageAlt: "A human hand and a metallic robotic hand meeting in a handshake, in Infocure dark-navy tones",
   },
   stats: [
     { value: "300+", label: "Pool of certified consultants" },

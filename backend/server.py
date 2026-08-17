@@ -423,6 +423,26 @@ def get_object(path: str) -> tuple:
     return resp.content, resp.headers.get("Content-Type", "application/octet-stream")
 
 
+def delete_object(path: str) -> None:
+    key = init_storage()
+    with httpx.Client(timeout=60) as client:
+        resp = client.delete(f"{STORAGE_URL}/objects/{path}", headers={"X-Storage-Key": key})
+    if resp.status_code not in (200, 202, 204, 404):
+        resp.raise_for_status()
+
+
+async def _delete_file_by_url(url: Optional[str]) -> None:
+    """Best-effort removal of a CMS-uploaded file referenced by a /api/files/ URL."""
+    if not url or "/api/files/" not in url:
+        return
+    path = url.split("/api/files/", 1)[1]
+    await db.files.update_one({"storage_path": path}, {"$set": {"is_deleted": True}})
+    try:
+        await asyncio.to_thread(delete_object, path)
+    except Exception as e:
+        logger.error(f"Object storage delete failed for {path}: {e}")
+
+
 # ---------------- PDF brand stamping ----------------
 # Every PDF uploaded through the CMS is stamped with the Infocure brand:
 # logo icon + "infocure technologies" wordmark (all lowercase, "cure" in red)
@@ -715,9 +735,12 @@ async def update_insight(slug: str, input: InsightUpdate, admin=Depends(admin_gu
 
 @api_router.delete("/insights/{slug}")
 async def delete_insight(slug: str, admin=Depends(admin_guard)):
-    result = await db.insights.delete_one({"slug": slug})
-    if result.deleted_count == 0:
+    existing = await db.insights.find_one({"slug": slug})
+    if not existing:
         raise HTTPException(status_code=404, detail="Article not found")
+    await db.insights.delete_one({"slug": slug})
+    await _delete_file_by_url(existing.get("pdf_url"))
+    await _delete_file_by_url(existing.get("image"))
     return {"deleted": slug}
 
 

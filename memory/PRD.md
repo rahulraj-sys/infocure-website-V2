@@ -40,6 +40,7 @@ Imported the real site from `infocure-Website-V2-main.zip` (previous boilerplate
 - Reported (not fixed, out of scope): orphaned uploaded-file cleanup on insight delete (non-breaking storage housekeeping).
 
 ## Backlog / Next
-- P0: Receive TA.png -> re-treat to dark-navy Infocure theme -> swap TA hero (B10).
-- P1: User allowlist decision on case-study metrics + dashboard SVG "87%" (A4).
-- P2: Optional — optimize hero video weights for faster load / less layout shift.
+- B10 Team Augmentation hero: DONE (2026-06). Re-treated user's TA.png into dark-navy Infocure theme (cyan glow, preserved hand proportions, left negative space) -> /media/ta-hero.jpg, wired in flagship.js (removed generic method-bg video). Verified visually.
+- A4 numbers scrub (case studies + dashboard 87%): DONE (2026-06). Rewrote data/case-studies.js outcomes/titles/summaries to qualitative (no % / revenue / count claims); replaced decorative "87%" gauge with a non-numeric status dot ("OPTIMISED"). Scan confirms CLEAN.
+- Upload cleanup on delete: DONE (2026-06). delete_insight now removes associated PDF/image from object storage (is_deleted + best-effort delete_object). Verified file 200 before delete -> 404 after.
+- DT hero video (B9): user asked to reuse NeoSoft's video. DECLINED to copy the competitor's proprietary asset (copyright/IP risk, contradicts user's own "NeoSoft asset never copied" guardrail). Kept the in-house original /media/dt-hero.mp4. Flagged to user; offered to refine the in-house clip's look or use a user-supplied licensed file.

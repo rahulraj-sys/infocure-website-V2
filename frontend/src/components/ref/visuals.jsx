@@ -392,8 +392,8 @@ export function PpcVisual({ caption = "Production planning" }) {
         <path d="M 380 160 A 62 62 0 0 1 504 160" fill="none" stroke={RED} strokeWidth="8" strokeLinecap="round" strokeDasharray="195" strokeDashoffset="195">
           <animate attributeName="stroke-dashoffset" from="195" to="52" dur="1.6s" begin="1.8s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" />
         </path>
-        <text x="442" y="152" textAnchor="middle" fontSize="17" fontWeight="700" fill="#FFFFFF">87%</text>
-        <text x="442" y="170" textAnchor="middle" fontSize="8.5" fontWeight="500" fill="rgba(255,255,255,0.55)" letterSpacing="1">UTILISED</text>
+        <circle cx="442" cy="146" r="5.5" fill={RED} />
+        <text x="442" y="170" textAnchor="middle" fontSize="8.5" fontWeight="500" fill="rgba(255,255,255,0.55)" letterSpacing="1">OPTIMISED</text>
       </g>
       <g className="ic-node-pop" style={{ animationDelay: "2.2s" }}>
         <rect x="380" y="210" width="140" height="66" rx="10" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.22)" />

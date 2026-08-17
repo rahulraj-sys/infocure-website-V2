@@ -147,6 +147,7 @@ export default function FlagshipPage({ config }) {
         secondaryCta={{ label: config.hero.secondaryLabel || "Request a Proposal", href: "/contact" }}
         trustLine={config.hero.trustLine}
         image={config.hero.image}
+        imageAlt={config.hero.imageAlt || ""}
         video={config.hero.video}
         videoWebm={config.hero.videoWebm}
       />
