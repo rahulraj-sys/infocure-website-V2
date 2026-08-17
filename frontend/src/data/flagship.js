@@ -28,8 +28,8 @@ export const SAP_CONSULTING = {
     primaryLabel: "Talk to an SAP Expert",
     secondaryLabel: "Request a Consultation",
     trustLine: "Senior-led delivery · Fit-to-standard discipline · Support that stays after go-live",
-    image: "/media/hero-sap.jpg",
-    imageAlt: "Abstract SAP enterprise ERP digital core with data process flows",
+    image: "/media/hero-sap-v2.webp",
+    imageAlt: "SAP enterprise data architecture, dark charcoal with red accents and SAP branding",
     videoTreatment: "vivid-right",
   },
   sections: [
@@ -621,8 +621,8 @@ export const BUILD_CLOUD = {
     primaryLabel: "Talk to a Technology Expert",
     secondaryLabel: "Start a Technology Conversation",
     trustLine: "Senior engineering teams · Fixed-scope delivery · Code you own outright",
-    image: "/media/hero-buildcloud.jpg",
-    imageAlt: "Abstract cloud-native software architecture with connected API nodes",
+    image: "/media/hero-buildcloud-v2.jpeg",
+    imageAlt: "Dark digital infrastructure and software architecture with connected nodes and red accents",
     videoTreatment: "vivid-right",
   },
   sections: [

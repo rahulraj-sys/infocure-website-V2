@@ -57,3 +57,10 @@ Imported the real site from `infocure-Website-V2-main.zip` (previous boilerplate
 ## Known remaining (reported, not changed)
 - Breadcrumbs: BreadcrumbList schema builders exist in data, but visible breadcrumb trail may not be rendered on all inner pages (item 19) — needs go-ahead as it is additive UI.
 - Case-study result metrics were rewritten qualitatively in a prior round; confirm if real approved numbers preferred.
+
+## 2026-06 — Final hero visual update (user-supplied assets)
+- SAP Consulting hero -> uploaded /media/hero-sap-v2.webp (charcoal + red, baked-in SAP branding). Static, no video.
+- Build & Cloud hero -> uploaded /media/hero-buildcloud-v2.jpeg (dark digital infrastructure, red accents). Static, no video.
+- Oracle & Salesforce heroes UNCHANGED (hero-oracle.jpg / hero-salesforce.jpg).
+- Homepage + Digital Transformation videos preserved. Verified by testing_agent iteration_6.json (100% pass, no issues).
+- Held (need explicit go-ahead; current spec was 'visual hero only'): visible breadcrumbs (item 19), About/Leadership/Careers spacing polish. Salesforce baked-in-text cleanup NOT done because the hero spec said keep Salesforce as-is.

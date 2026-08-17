@@ -1,0 +1,33 @@
+{
+  "summary": "Targeted frontend QA completed against the public URL for the four service heroes plus homepage/Digital Transformation video regressions. SAP, Build & Cloud, Oracle and Salesforce render the required static image sources, all assets return HTTP 200 with correct image MIME types and non-zero bodies, all images decode with non-zero natural dimensions and object-fit: cover, and none of the four heroes contains a video. Headlines and both CTAs remain visible, left-aligned and unobstructed. SAP and Build & Cloud passed desktop 1920x800, tablet 820x1180 and mobile 390x844 layout checks with no overflow or overlap. No console/page errors were observed. Homepage video actively played via WebM. Digital Transformation preserved and fetched /media/dt-hero.mp4 with HTTP 206, but active H.264 time advancement could not be asserted because the automation Chromium lacks that decoder.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/test_reports/iteration_6.json"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Verified the static-image path end to end: flagship.js config -> FlagshipPage props -> Hero static <img>. The four requested service configs have no video key, so Hero does not instantiate LazyVideo for them.",
+    "The shared vivid-right treatment renders the image at full opacity with object-cover and two foreground scrims; DOM stacking and center-point hit testing confirmed the background does not cover the H1 or CTAs.",
+    "Digital Transformation still supplies /media/dt-hero.mp4 and Homepage still supplies /media/hero-bg.webm plus /media/hero-bg.mp4. Homepage WebM reached readyState 4 and currentTime advanced while unpaused. The DT MP4 returned 206 video/mp4 and had no media error, but this Playwright Chromium remained at readyState 0 due its known H.264 codec limitation."
+  ],
+  "updated_files": [
+    "/app/test_reports/iteration_6.json"
+  ],
+  "success_rate": {
+    "backend": "Not tested (frontend-only request)",
+    "frontend": "100% of executable acceptance checks passed; DT active MP4 playback was structurally/network verified but codec-limited in this runner"
+  },
+  "seed_data_creation": "None",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Live DOM sources: SAP /media/hero-sap-v2.webp (2000x731), Build & Cloud /media/hero-buildcloud-v2.jpeg (1792x1024), Oracle /media/hero-oracle.jpg (1264x848), Salesforce /media/hero-salesforce.jpg (1264x848). All four service hero images loaded at opacity 1 with object-fit cover and zero hero videos. SAP/Build responsive checks passed at 1920x800, 820x1180 and 390x844; mobile CTAs wrap into separate rows without overlap. No red console errors or page exceptions were seen. DT has exactly one hero video with /media/dt-hero.mp4 and the expected autoplay/muted/loop/playsInline attributes; public byte-range response is 206 video/mp4. Homepage hero actively played /media/hero-bg.webm. The initial browser attempt saw navigation-aborted asset requests caused by the automation wrapper retry; decoded image checks and subsequent clean runs proved these were not application failures.",
+  "rca_of_the_issue": "No application defect reproduced. The only incomplete runtime assertion is DT H.264 playback: the media was requested successfully and the DOM configuration is correct, but the bundled automation Chromium does not decode H.264, leaving readyState at 0; the same runner limitation was documented in iteration_5."
+}
