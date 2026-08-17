@@ -20,11 +20,13 @@ export function Hero({
   className,
   video,
   videoWebm,
+  videoMobile,
   videoPoster,
   videoTreatment,
   accent,
 }) {
-  const vivid = videoTreatment === "vivid";
+  const vividRight = videoTreatment === "vivid-right";
+  const vivid = videoTreatment === "vivid" || vividRight;
   if (variant === "split") {
     return (
       <section className={cx("relative bg-white", className)}>
@@ -133,19 +135,27 @@ export function Hero({
           <LazyVideo
             src={video}
             webm={videoWebm}
+            mobileSrc={videoMobile}
             poster={image}
             className="h-full w-full object-cover"
             testId="hero-inner-video"
           />
         ) : null}
         {vivid && video ? null : (
-          <img src={image} alt={imageAlt} className={cx("h-full w-full object-cover", video ? "absolute inset-0 opacity-30" : "opacity-55")} />
+          <img src={image} alt={imageAlt} className={cx("h-full w-full object-cover", video ? "absolute inset-0 opacity-30" : (vivid ? "opacity-100" : "opacity-55"))} />
         )}
-        {vivid && video ? (
-          <>
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/70 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/75 via-transparent to-transparent" />
-          </>
+        {vivid ? (
+          vividRight ? (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-ink from-0% via-brand-ink/55 via-[38%] to-transparent to-[68%]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/70 via-transparent to-transparent" />
+            </>
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/70 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/75 via-transparent to-transparent" />
+            </>
+          )
         ) : (
           <>
             <div className="absolute inset-0 bg-gradient-to-br from-brand-ink via-brand-ink/85 to-brand-black/90" />

@@ -150,6 +150,7 @@ export default function FlagshipPage({ config }) {
         imageAlt={config.hero.imageAlt || ""}
         video={config.hero.video}
         videoWebm={config.hero.videoWebm}
+        videoMobile={config.hero.videoMobile}
         videoTreatment={config.hero.videoTreatment}
       />
 

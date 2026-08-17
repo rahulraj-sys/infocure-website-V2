@@ -44,3 +44,16 @@ Imported the real site from `infocure-Website-V2-main.zip` (previous boilerplate
 - A4 numbers scrub (case studies + dashboard 87%): DONE (2026-06). Rewrote data/case-studies.js outcomes/titles/summaries to qualitative (no % / revenue / count claims); replaced decorative "87%" gauge with a non-numeric status dot ("OPTIMISED"). Scan confirms CLEAN.
 - Upload cleanup on delete: DONE (2026-06). delete_insight now removes associated PDF/image from object storage (is_deleted + best-effort delete_object). Verified file 200 before delete -> 404 after.
 - DT hero video (B9): DONE (2026-06). User confirmed the NeoSoft clip is licensed to them; swapped in the licensed Digital-Transformation-Web.mp4 as /media/dt-hero.mp4 (1280x720, 1.75MB — lighter than prior 3.5MB in-house), regenerated matching poster /media/dt-hero-poster.jpg via ffmpeg. Autoplay/muted/loop, dark gradient overlay, poster prevents layout shift. Verified rendering + served 200.
+
+## 2026-06 — Final visual refinement round
+- Mobile DT video: LazyVideo now serves lighter /media/dt-hero-mobile.mp4 on <=768px (matchMedia); desktop keeps dt-hero.mp4. `videoMobile` threaded via FlagshipPage.
+- Global unsupported-numbers scrub (items 8/11): Home.jsx testimonial "INR 4,000 Cr revenue" -> removed; "Eleven years" -> "Over a decade"; "INR 200 Cr–5,000 Cr" positioning -> "Growing and mid-market enterprises across India, the GCC and international markets". No 100+/98%/N+ claims exist anywhere (already clean). 85% etc remain only on Team Augmentation.
+- Sitemap: removed duplicate /services/team-augmentation entry (0 dup locs, 52 urls, no blog).
+- SAP hero image bug: was SAP&ORACLE combo -> replaced (then superseded below).
+- Products menu: "Custom ERM" -> "Custom ERP".
+- FOUR service-page hero visuals (SAP/Oracle/Salesforce/Build&Cloud): generated 4 distinct dark-navy tech visuals -> /media/hero-sap.jpg, hero-oracle.jpg, hero-salesforce.jpg, hero-buildcloud.jpg. Removed the shared generic method-bg video from these 4; each uses new `vivid-right` Hero treatment (bright right-weighted visual + left dark scrim for headline). DT `vivid` treatment unchanged. Verified all 4 render distinct + readable.
+- Hero.jsx: added `videoMobile`, `vivid-right` treatment (left-concentrated scrim), image-vivid support.
+
+## Known remaining (reported, not changed)
+- Breadcrumbs: BreadcrumbList schema builders exist in data, but visible breadcrumb trail may not be rendered on all inner pages (item 19) — needs go-ahead as it is additive UI.
+- Case-study result metrics were rewritten qualitatively in a prior round; confirm if real approved numbers preferred.

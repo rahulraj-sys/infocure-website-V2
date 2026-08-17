@@ -127,7 +127,7 @@ const TESTIMONIALS = [
   {
     quote: "infocure ran our S/4HANA cutover across three plants with the discipline of a Tier-1 firm and the accessibility of a partner. Zero business disruption on day one.",
     name: "Group CIO",
-    company: "Indian automotive component manufacturer, INR 4,000 Cr revenue",
+    company: "Indian automotive component manufacturer",
   },
   {
     quote: "They understood the boardroom conversation before they wrote a line of code. Our transformation programme finally has a single owner.",
@@ -210,12 +210,12 @@ export default function Home() {
             <Reveal>
               <Badge tone="red" className="mb-6">Our positioning</Badge>
               <h2 className="font-display text-[30px] font-semibold leading-[1.15] tracking-[-0.3px] text-brand-ink lg:text-[44px]">
-                Eleven years of consulting rigour. Purpose-built for the pace of growing businesses.
+                Over a decade of consulting rigour. Purpose-built for the pace of growing businesses.
               </h2>
               <p className="mt-6 font-body text-[17px] leading-relaxed text-brand-slate lg:text-[18px]">
                 Global system integrators are engineered for the Fortune 500. Regional shops are
-                engineered for staff augmentation. Growing enterprises, typically between INR 200 Cr
-                and INR 5,000 Cr or their GCC and international equivalents, have long been
+                engineered for staff augmentation. Growing and mid-market enterprises across India,
+                the GCC and international markets have long been
                 under-served by both.
               </p>
               <p className="mt-4 font-body text-[17px] leading-relaxed text-brand-slate lg:text-[18px]">

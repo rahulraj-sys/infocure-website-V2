@@ -28,9 +28,9 @@ export const SAP_CONSULTING = {
     primaryLabel: "Talk to an SAP Expert",
     secondaryLabel: "Request a Consultation",
     trustLine: "Senior-led delivery · Fit-to-standard discipline · Support that stays after go-live",
-    image: "/img-sap-fiori.webp",
-    video: "/media/method-bg.mp4",
-    videoWebm: "/media/method-bg.webm",
+    image: "/media/hero-sap.jpg",
+    imageAlt: "Abstract SAP enterprise ERP digital core with data process flows",
+    videoTreatment: "vivid-right",
   },
   sections: [
     {
@@ -229,9 +229,9 @@ export const ORACLE_CONSULTING = {
     primaryLabel: "Talk to an Oracle Expert",
     secondaryLabel: "Schedule a Consultation",
     trustLine: "Business-first Oracle expertise · Clean-core modernization · Support that stays after go-live",
-    image: "/img-cloud-2.webp",
-    video: "/media/method-bg.mp4",
-    videoWebm: "/media/method-bg.webm",
+    image: "/media/hero-oracle.jpg",
+    imageAlt: "Abstract Oracle enterprise cloud and database platform visualization",
+    videoTreatment: "vivid-right",
   },
   sections: [
     {
@@ -425,9 +425,9 @@ export const SALESFORCE_CONSULTING = {
     primaryLabel: "Talk to a Salesforce Expert",
     secondaryLabel: "Request a Consultation",
     trustLine: "Consultants who have run the sales floor · Adoption engineered in · A single customer view",
-    image: "/img-business-networks.webp",
-    video: "/media/method-bg.mp4",
-    videoWebm: "/media/method-bg.webm",
+    image: "/media/hero-salesforce.jpg",
+    imageAlt: "Abstract Salesforce Customer 360 CRM ecosystem of connected nodes",
+    videoTreatment: "vivid-right",
   },
   sections: [
     {
@@ -621,9 +621,9 @@ export const BUILD_CLOUD = {
     primaryLabel: "Talk to a Technology Expert",
     secondaryLabel: "Start a Technology Conversation",
     trustLine: "Senior engineering teams · Fixed-scope delivery · Code you own outright",
-    image: "/img-coding-interface.webp",
-    video: "/media/method-bg.mp4",
-    videoWebm: "/media/method-bg.webm",
+    image: "/media/hero-buildcloud.jpg",
+    imageAlt: "Abstract cloud-native software architecture with connected API nodes",
+    videoTreatment: "vivid-right",
   },
   sections: [
     {
@@ -1037,6 +1037,7 @@ export const DIGITAL_TRANSFORMATION = {
     trustLine: "Business-first strategy · Senior-led delivery · Outcomes measured on your P&L",
     image: "/media/dt-hero-poster.jpg",
     video: "/media/dt-hero.mp4",
+    videoMobile: "/media/dt-hero-mobile.mp4",
     videoTreatment: "vivid",
   },
   sections: [

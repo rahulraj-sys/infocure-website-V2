@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function LazyVideo({ src, webm, poster, className = "", testId, defer = false }) {
+export default function LazyVideo({ src, webm, mobileSrc, poster, className = "", testId, defer = false }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -14,14 +14,15 @@ export default function LazyVideo({ src, webm, poster, className = "", testId, d
           if (!entry.isIntersecting) return;
           if (!video.dataset.loaded) {
             video.dataset.loaded = "1";
-            if (webm) {
+            const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches;
+            if (webm && !isMobile) {
               const s = document.createElement("source");
               s.src = webm;
               s.type = "video/webm";
               video.appendChild(s);
             }
             const s2 = document.createElement("source");
-            s2.src = src;
+            s2.src = isMobile && mobileSrc ? mobileSrc : src;
             s2.type = "video/mp4";
             video.appendChild(s2);
             video.load();
@@ -39,7 +40,7 @@ export default function LazyVideo({ src, webm, poster, className = "", testId, d
       arm();
     }
     return () => io && io.disconnect();
-  }, [src, webm, defer]);
+  }, [src, webm, mobileSrc, defer]);
 
   return (
     <video
