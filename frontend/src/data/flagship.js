@@ -1037,6 +1037,7 @@ export const DIGITAL_TRANSFORMATION = {
     trustLine: "Business-first strategy · Senior-led delivery · Outcomes measured on your P&L",
     image: "/media/dt-hero-poster.jpg",
     video: "/media/dt-hero.mp4",
+    videoTreatment: "vivid",
   },
   sections: [
     {
