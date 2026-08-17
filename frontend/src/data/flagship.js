@@ -28,7 +28,7 @@ export const SAP_CONSULTING = {
     primaryLabel: "Talk to an SAP Expert",
     secondaryLabel: "Request a Consultation",
     trustLine: "Senior-led delivery · Fit-to-standard discipline · Support that stays after go-live",
-    image: "/img-sap-oracle.webp",
+    image: "/img-sap-fiori.webp",
     video: "/media/method-bg.mp4",
     videoWebm: "/media/method-bg.webm",
   },

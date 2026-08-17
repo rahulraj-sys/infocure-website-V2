@@ -27,7 +27,7 @@ export function Button({ variant = "primary", size = "md", className, children, 
   );
   if (href) {
     return (
-      <Link to={href} className={classes}>
+      <Link to={href} className={classes} {...rest}>
         {children}
       </Link>
     );
